@@ -1,0 +1,146 @@
+.flip-card-wrapper {
+  position: relative;
+  width: 350px;
+  height: 550px;
+  transform-style: preserve-3d;
+  perspective: 5000px;
+  perspective-origin: top;
+  margin-top: 50px;
+}
+
+.card-wrapper {
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transition: ease-in 0.5s 0.3s;
+}
+
+.card-front,
+.card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 6px;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.moving-element {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moving-element div {
+  position: absolute;
+  font-size: 62px;
+  font-weight: 800;
+}
+
+.card-text-wrapper {
+  margin: 50px 0 20px;
+  text-align: center;
+}
+#tumbler-input:checked ~ .flip-card-wrapper .card-wrapper {
+  transform: rotateY(180deg);
+  transition: ease-in 0.5s 0.3s;
+}
+
+.card-front .moving-element:before,
+.card-back .moving-element:before {
+  content: '';
+  width: 170px;
+  height: 170px;
+  display: block;
+  box-shadow: 0 6px 20px 0 rgba(16, 39, 112,.3);
+  animation: border-transform 5s linear infinite;
+  transform: translate3d(0, 0, 80px) perspective(100px);
+}
+
+.card-front .moving-element:before{
+  background: linear-gradient(217deg, #448ad5, #b8eaf9);
+}
+
+.card-back .moving-element:before{
+  background: linear-gradient(217deg, #648946, #a3c984);
+}
+
+@keyframes border-transform{
+  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; }
+  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; }
+  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; }
+  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; }
+  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; }
+}
+
+/*
+*
+*/
+
+.card-front .moving-element div{
+  opacity: 1;
+  transform: translate3d(0, 0, 85px) perspective(100px) scale(1);
+  transition: transform 300ms 1300ms ease, opacity 200ms 1300ms ease;
+}
+
+.card-back .moving-element div{
+  opacity: 0;
+  transform: translate3d(0, 0, 85px) perspective(100px) scale(0.5);
+  transition: transform 400ms 100ms ease, opacity 200ms 250ms ease;
+}
+
+#tumbler-input:checked ~ .flip-card-wrapper .card-wrapper .card-front .moving-element div {
+  opacity: 0;
+  transform: translate3d(0, 0, 85px) perspective(100px) scale(0.5);
+  transition: transform 400ms ease, opacity 200ms 150ms ease;
+}
+
+#tumbler-input:checked ~ .flip-card-wrapper .card-wrapper .card-back .moving-element div {
+  opacity: 1;
+  transform: translate3d(0, 0, 85px) perspective(100px) scale(1);
+  transition: transform 400ms 1300ms ease, opacity 300ms 1300ms ease;
+}
+
+/*
+* Btn styles
+*/
+
+.btn-front,
+.btn-back {
+  padding: 15px 30px;
+  border-radius: 4px;
+  color: #000;
+  transform: translate3d(0, 0, 80px) perspective(100px);
+}
+
+.btn-front {
+  border: 2px solid #85c7ff;
+}
+.btn-front:hover{
+  background-color: #85c7ff;
+}
+
+.btn-back {
+  border: 2px solid #7cbe8c;
+}
+.btn-back:hover {
+  background-color: #7cbe8c;
+}

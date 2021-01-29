@@ -1,0 +1,51 @@
+#tumbler-input{
+  position: absolute;
+  left: -9999px;
+}
+
+.tumbler-text {
+  mix-blend-mode: difference;
+}
+
+#tumbler-label {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+#tumbler-label:before{
+  position: absolute;
+  content: '';
+  z-index: -2;
+  background-color: #404040;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+}
+
+#tumbler-label:after{
+  position: absolute;
+  content: '';
+  z-index: -1;
+  background-color: #85c7ff;
+  width: 50%;
+  height: 46px;
+  display: block;
+  top: 2px;
+  left: 2px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#tumbler-input:checked + #tumbler-label:after {
+  left: 148px;
+}

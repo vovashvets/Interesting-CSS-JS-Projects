@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flip</title>
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="stylesheet" href="css/tumbler.css">
+  <link rel="stylesheet" href="css/card.css">
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="tumbler-input" name="tumbler"/>
+    <label id="tumbler-label" for="tumbler-input">
+      <span class="tumbler-text">Front</span>
+      <span class="tumbler-text">Back</span>
+    </label>
+
+    <div class="flip-card-wrapper">
+      <div class="card-wrapper">
+
+        <div class="card-front">
+          <div class="moving-element">
+            <div>1</div>
+          </div>
+          <div class="card-text-wrapper">
+            <h2>Front Side</h2>
+            <p>Title</p>
+            <p>Description</p>
+          </div>
+          <a href="#" class="btn-front">Choose Front Side</a>
+        </div>
+
+        <div class="card-back">
+          <div class="moving-element">
+            <div>2</div>
+          </div>
+          <div class="card-text-wrapper">
+            <h2>Back Side</h2>
+            <p>Title</p>
+            <p>Description</p>
+          </div>
+          <a href="#" class="btn-back">Choose Back Side</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
